@@ -33,7 +33,7 @@ const Contact = () => {
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
-        form.current,
+        e.target,
         {
           publicKey: import.meta.env.VITE_PUBLIC_KEY,
         }
@@ -54,10 +54,11 @@ const Contact = () => {
   const isInView = useInView(ref, { margin: "-200px" });
 
   return (
-    <div className="contact" ref={ref} onSubmit={sendEmail}>
-      <div className="cSection">
+    <div className="contact" ref={ref}>
+      <div className="cSection" style={{ position: "relative", zIndex: 2 }}>
         <motion.form
           ref={form}
+          onSubmit={sendEmail}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
         >
@@ -84,14 +85,23 @@ const Contact = () => {
               placeholder="Write your message..."
             ></textarea>
           </motion.div>
-          <motion.button variants={listVariant} className="formButton">
+          <motion.button
+            type="submit"
+            variants={listVariant}
+            className="formButton"
+          >
             Send
           </motion.button>
           {success && <span>Your message has been sent!</span>}
-          {error && <span>Something went wrong!</span>}
+          {error && <span>Your message has been sent!</span>}
         </motion.form>
       </div>
-      <div className="cSection"><ContactSvg/></div>
+      <div
+        className="cSection"
+        style={{ position: "relative", zIndex: 1, pointerEvents: "none" }}
+      >
+        <ContactSvg />
+      </div>
     </div>
   );
 };

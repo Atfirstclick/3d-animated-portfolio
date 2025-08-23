@@ -48,7 +48,9 @@ const Hero = () => {
         >
           Hey There,
           <br />
-          <span>I'm Robert!</span>
+          <span>I'm Kamil!</span>
+          <br />
+
         </motion.h1>
         {/* AWARDS */}
         <motion.div
@@ -57,14 +59,22 @@ const Hero = () => {
           animate="animate"
           className="awards"
         >
-          <motion.h2 variants={awardVariants}>Top Rated Designer</motion.h2>
+          <motion.h2 variants={awardVariants}>My Tech Stack</motion.h2>
           <motion.p variants={awardVariants}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            I use a wide array of tools to let you have a smooth experience.
           </motion.p>
           <motion.div variants={awardVariants} className="awardList">
-            <motion.img variants={awardVariants} src="/award1.png" alt="" />
-            <motion.img variants={awardVariants} src="/award2.png" alt="" />
-            <motion.img variants={awardVariants} src="/award3.png" alt="" />
+            <motion.img variants={awardVariants} src="/html.png" alt="" />
+            <motion.img variants={awardVariants} src="/css.png" alt="" />
+            <motion.img variants={awardVariants} src="/Next.png" alt="" />
+            <motion.img variants={awardVariants} src="/react.png" alt="" />
+            <motion.img variants={awardVariants} src="/ts.png" alt="" />
+            <br/>
+            <motion.img variants={awardVariants} src="/js.png" alt="" />
+            <motion.img variants={awardVariants} src="/postgres.png" alt="" />
+            <motion.img variants={awardVariants} src="/docker.png" alt="" />
+            <motion.img variants={awardVariants} src="/canva.png" alt="" />
+            <motion.img variants={awardVariants} src="/pr.png" alt="" />
           </motion.div>
         </motion.div>
         {/* SCROLL SVG */}
@@ -106,7 +116,8 @@ const Hero = () => {
         </motion.a>
       </div>
       <div className="hSection right">
-        {/* FOLLOW */}
+
+         {/* FOLLOW */}
         <motion.div
           variants={followVariants}
           initial="initial"
@@ -116,8 +127,8 @@ const Hero = () => {
           <motion.a variants={followVariants} href="/">
             <img src="/instagram.png" alt="" />
           </motion.a>
-          <motion.a variants={followVariants} href="/">
-            <img src="/facebook.png" alt="" />
+          <motion.a variants={followVariants} href="https://x.com/kml_ai">
+            <img src="/x.png" alt="" />
           </motion.a>
           <motion.a variants={followVariants} href="/">
             <img src="/youtube.png" alt="" />
@@ -128,22 +139,15 @@ const Hero = () => {
         </motion.div>
         {/* BUBBLE */}
         <Speech />
-        {/* CERTIFICATE */}
-        <motion.div
-          animate={{ opacity: [0, 1] }}
-          transition={{ duration: 1 }}
-          className="certificate"
-        >
-          <img src="/certificate.png" alt="" />
-          LMA CERTIFICED
-          <br />
-          PROFESSIONAL
-          <br />
-          UI DESIGNER
-        </motion.div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
         {/* CONTACT BUTTON */}
         <motion.a
-          href="/#contact"
+          href="https://calendly.com/kamil-ulupinar/30min"
           className="contactLink"
           animate={{
             x: [200, 0],
@@ -163,18 +167,18 @@ const Hero = () => {
             }}
           >
             <svg viewBox="0 0 200 200" width="150" height="150">
-              <circle cx="100" cy="100" r="90" fill="pink" />
+              <circle cx="100" cy="100" r="90" fill="white" />
               <path
                 id="innerCirclePath"
                 fill="none"
                 d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
               />
               <text className="circleText">
-                <textPath href="#innerCirclePath">Hire Now •</textPath>
+                <textPath href="#innerCirclePath">Book a Call •</textPath>
               </text>
               <text className="circleText">
-                <textPath href="#innerCirclePath" startOffset="44%">
-                  Contact Me •
+                <textPath href="#innerCirclePath" startOffset="54%">
+                  Hire Me •
                 </textPath>
               </text>
             </svg>
@@ -203,7 +207,7 @@ const Hero = () => {
           </Suspense>
         </Canvas>
         <div className="hImg">
-          <img src="/hero.png" alt="" />
+          <img src="/hero1.png" alt="" />
         </div>
       </div>
     </div>

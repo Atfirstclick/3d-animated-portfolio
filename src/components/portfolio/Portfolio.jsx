@@ -2,42 +2,30 @@ import { useEffect, useRef, useState } from "react";
 import "./portfolio.css";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 
+// Portfolio items data
 const items = [
   {
     id: 1,
-    img: "/p1.jpg",
-    title: "Full Stack Blog Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    img: "/p5.jpg",
+    title: "Animated Portfolio Website",
+    desc: "A modern animated portfolio website showcasing interactive design, smooth transitions, and responsive layout.",
     link: "/",
   },
   {
     id: 2,
-    img: "/p2.jpg",
-    title: "School Management System",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/p3.jpg",
+    title: "Personal Web Site Design",
+    desc: "Modern and simple personal website design with shopping feature, designed on WIX.",
+    link: "https://www.alihocaylabiyoloji.com/",
   },
   {
     id: 3,
-    img: "/p3.jpg",
-    title: "Real-time Chat Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    img: "/p2.jpg",
+    title: "School Management System",
+    desc: "Full-stack school management system for educational institutions, including student, teacher, and class management.",
     link: "/",
   },
-  {
-    id: 4,
-    img: "/p4.jpg",
-    title: "Social Media Project",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
-  },
-  {
-    id: 5,
-    img: "/p5.jpg",
-    title: "Animated Portfolio Website",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
-  },
+  // Additional items can be added here
 ];
 
 const imgVariants = {
@@ -160,7 +148,7 @@ const Portfolio = () => {
       <section />
       <section />
       <section />
-      <div className="pProgress">
+      {/* <div className="pProgress">
         <svg width="100%" height="100%" viewBox="0 0 160 160">
           <circle
             cx="80"
@@ -181,7 +169,7 @@ const Portfolio = () => {
             transform="rotate(-90 80 80)"
           />
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 };

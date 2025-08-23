@@ -19,7 +19,7 @@
   right: 0;
   left: 0;
   margin: auto;
-  height: 80%;
+  height: 85%;
   width: max-content;
 }
 
@@ -40,7 +40,7 @@
 .hTitle {
   margin-top: 50px;
   font-size: 100px;
-  color: pink;
+  color: rgb(215, 255, 192);
 }
 
 .hTitle span {
@@ -59,13 +59,15 @@
 
 .awardList {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  max-width: 200px;
 }
 
 .awardList img {
   width: 36px;
   height: 36px;
-  padding: 8px;
+  padding: 4px;
   background-color: white;
   border-radius: 100%;
 }

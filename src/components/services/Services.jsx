@@ -1,5 +1,5 @@
 import ComputerModelContainer from "./computer/ComputerModelContainer";
-import ConsoleModelContainer from "./console/ConsoleModelContainer";
+import LikeButtonContainer from "./likebutton/LikeButtonContainer";
 import Counter from "./Counter";
 import MugModelContainer from "./mug/MugModelContainer";
 import "./services.css";
@@ -42,19 +42,19 @@ const services = [
     id: 1,
     img: "/service1.png",
     title: "Web Development",
-    counter: 35,
+    counter: 2,
   },
   {
     id: 2,
     img: "/service2.png",
-    title: "Product Design",
-    counter: 23,
+    title: "Content Creation",
+    counter: 125,
   },
   {
     id: 3,
     img: "/service3.png",
-    title: "Branding",
-    counter: 46,
+    title: "Social Growth Management",
+    counter: 2,
   },
 ];
 
@@ -95,8 +95,8 @@ const Services = () => {
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={104} text="Projects Completed" />
-          <Counter from={0} to={72} text="Happy Clients" />
+          <Counter from={0} to={12} text="Projects Completed" />
+          <Counter from={0} to={4} text="Happy Clients" />
         </div>
       </div>
       <div className="sSection right">
@@ -105,7 +105,7 @@ const Services = () => {
         ) : currentServiceId === 2 ? (
           <MugModelContainer />
         ) : (
-          <ConsoleModelContainer />
+          <LikeButtonContainer  />
         )}
       </div>
     </div>
