@@ -1,6 +1,7 @@
 .contact {
   height: 100%;
   display: flex;
+  position: relative;
   gap: 100px;
 }
 
