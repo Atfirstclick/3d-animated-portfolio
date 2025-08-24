@@ -104,22 +104,25 @@ const Portfolio = () => {
   // }, []);
 
   // FIX: Re-calculate when screen size changes
-  useEffect(() => {
-    const calculateDistance = () => {
+  // useEffect(() => {
+  //   const calculateDistance = () => {
+  //     if (ref.current) {
+  //       const rect = ref.current.getBoundingClientRect();
+  //       setContainerDistance(rect.left);
+  //     }
+  //   };
+
+  //   calculateDistance();
+
+  //   window.addEventListener("resize", calculateDistance);
+
+    useEffect(() => {
+
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
         setContainerDistance(rect.left);
       }
-    };
-
-    calculateDistance();
-
-    window.addEventListener("resize", calculateDistance);
-
-    return () => {
-      window.removeEventListener("resize", calculateDistance);
-    };
-  }, []);
+    },[]);
 
   const { scrollYProgress } = useScroll({ target: ref });
 
