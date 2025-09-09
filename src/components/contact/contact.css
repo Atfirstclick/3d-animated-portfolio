@@ -16,7 +16,8 @@
 
 .cSection:last-child {
   background-color: rgba(2, 2, 45, 0.187);
-  margin: 50px 0px;
+  /* Remove outer vertical margins that pushed the section beyond 100vh
+     and caused the extra blank space at the page end. */
   padding: 50px;
   border-radius: 50% 0px;
 }

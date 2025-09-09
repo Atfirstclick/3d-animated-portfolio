@@ -1,5 +1,6 @@
 .portfolio {
-  height: 400vh;
+  /* Height is now controlled dynamically from JSX
+     to match the number of items. */
   position: relative;
 }
 
@@ -9,11 +10,15 @@
   display: flex;
   height: 100vh;
   width: max-content;
+  will-change: transform;
 }
 
 .pItem {
   height: 100vh;
-  width: 100vw;
+  /* Prevent items from shrinking on small screens and
+     ensure each slide always spans exactly one viewport width. */
+  flex: 0 0 100vw;
+  min-width: 100vw;
   overflow: hidden;
   display: flex;
   align-items: center;

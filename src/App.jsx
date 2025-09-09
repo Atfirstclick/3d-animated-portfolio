@@ -4,6 +4,7 @@
 // import Contact from "./components/contact/Contact";
 
 import { lazy, Suspense } from "react";
+import { items as portfolioItems } from "./components/portfolio/data";
 import LazyLoad from "react-lazyload";
 
 const Hero = lazy(() => import("./components/hero/Hero"));
@@ -29,7 +30,11 @@ const App = () => {
         </LazyLoad>
       </Suspense>
       <Suspense fallback={"loading..."}>
-        <LazyLoad height={"300vh"} offset={-100}>
+        {/* Placeholder height matches the internal sticky scroll area */}
+        <LazyLoad
+          height={`${(portfolioItems.length + 1) * 100}vh`}
+          offset={-100}
+        >
           {/* <section id="#portfolio"> */}
           <Portfolio />
           {/* </section> */}{" "}

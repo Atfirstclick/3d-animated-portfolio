@@ -1,32 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./portfolio.css";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { items } from "./data";
 
-// Portfolio items data
-const items = [
-  {
-    id: 1,
-    img: "/p5.jpg",
-    title: "Animated Portfolio Website",
-    desc: "A modern animated portfolio website showcasing interactive design, smooth transitions, and responsive layout.",
-    link: "/",
-  },
-  {
-    id: 2,
-    img: "/p3.jpg",
-    title: "Personal Web Site Design",
-    desc: "Modern and simple personal website design with shopping feature, designed on WIX.",
-    link: "https://www.alihocaylabiyoloji.com/",
-  },
-  {
-    id: 3,
-    img: "/p2.jpg",
-    title: "School Management System",
-    desc: "Full-stack school management system for educational institutions, including student, teacher, and class management.",
-    link: "/",
-  },
-  // Additional items can be added here
-];
+// Portfolio items are imported from data.js
 
 const imgVariants = {
   initial: {
@@ -94,6 +71,9 @@ const ListItem = ({ item }) => {
 
 const Portfolio = () => {
   const [containerDistance, setContainerDistance] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   const ref = useRef(null);
 
   // useEffect(() => {
@@ -116,29 +96,50 @@ const Portfolio = () => {
 
   //   window.addEventListener("resize", calculateDistance);
 
-    useEffect(() => {
-
+  useEffect(() => {
+    const updateSizes = () => {
+      if (typeof window !== "undefined") {
+        setViewportWidth(window.innerWidth);
+      }
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
         setContainerDistance(rect.left);
       }
-    },[]);
+    };
+    updateSizes();
+    window.addEventListener("resize", updateSizes);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", updateSizes);
+    }
+    return () => {
+      window.removeEventListener("resize", updateSizes);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", updateSizes);
+      }
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({ target: ref });
 
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -window.innerWidth * items.length]
+    [0, -viewportWidth * items.length]
   );
 
+  const totalScreens = items.length + 1; // start pad + each item
+
   return (
-    <div className="portfolio" ref={ref}>
+    <div
+      className="portfolio"
+      ref={ref}
+      style={{ height: `${totalScreens * 100}vh` }}
+    >
       <motion.div className="pList" style={{ x: xTranslate }}>
         <div
           className="empty"
           style={{
-            width: window.innerWidth - containerDistance,
+            width: Math.max(0, viewportWidth - containerDistance),
             // backgroundColor: "pink",
           }}
         />
@@ -146,11 +147,9 @@ const Portfolio = () => {
           <ListItem item={item} key={item.id} />
         ))}
       </motion.div>
-      <section />
-      <section />
-      <section />
-      <section />
-      <section />
+      {Array.from({ length: totalScreens }).map((_, i) => (
+        <section key={i} />
+      ))}
       {/* <div className="pProgress">
         <svg width="100%" height="100%" viewBox="0 0 160 160">
           <circle

@@ -2,6 +2,7 @@
   height: 100%;
   overflow: hidden;
   display: flex;
+  position: relative; /* allow absolute positioning of floating CTA */
 }
 
 .bg {
@@ -80,6 +81,8 @@
 
 .hSection.right {
   align-items: end;
+  justify-content: flex-start; /* stack under FOLLOW instead of pushing to bottom */
+  gap: 24px;
 }
 
 .follow {
@@ -159,8 +162,12 @@
 }
 
 .contactLink {
-  margin-bottom: 50px;
+  align-self: flex-start; /* left side of the left column */
+  margin: 12px 0 8px 0;
 }
+
+/* Hide any legacy CTA inside the right section */
+.hSection.right .contactLink { display: none; }
 
 .contactButton {
   position: relative;
@@ -278,10 +285,47 @@
 
   .awards {
     width: 100%;
+    /* Place text (h2 + p) on the left and logos on the right */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    column-gap: 16px;
   }
 
   .awardList {
-    justify-content: center;
+    justify-content: flex-start;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 140px;
+  }
+
+  .awardList img {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Make the circular contact button smaller on mobile */
+  .contactButton svg {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  /* Keep the contact button centered within the left column on mobile */
+  .contactLink {
+    align-self: center; /* center horizontally within the column */
+    margin: 0 auto;
+  }
+
+  /* Contact button follows normal flow on mobile */
+
+  .arrow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .arrow svg {
+    width: 40px;
+    height: 40px;
   }
 
   .hSection.right {
